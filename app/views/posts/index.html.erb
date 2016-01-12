@@ -1,12 +1,20 @@
 <%if user_signed_in? %>
+
+<% if current_user.try(:is_admin) %>
 <button><%= link_to "New Post", new_post_path %> </button>
-<button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></button>
+
 <% end %>
+
+<button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></button>
+
+
 <% @posts.each do |post| %>
 	<div class="post_wrapper">
     <h2 class="title"><%= link_to post.title, post %></h2>
 
 
 	</div>
+
+	<% end %>
 
 	<% end %>
