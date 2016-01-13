@@ -1,21 +1,109 @@
 <% if user_signed_in? %>
 
-<h1 class="title" >
-<%=  @post.title %>
-</h1>
+<!-- Page Content -->
+<div class="container">
 
-<p class="date">
-Submitted <%= time_ago_in_words(@post.created_at) %>
-<%= link_to 'Edit' , edit_post_path(@post) %>
-<%= link_to 'Delete' , post_path(@post) , method: :delete %>
-</p>
+	<div class="row">
 
-<p class="body">
-<%= @post.body %>
-</p>
-<h2><%= @post.comments.count %> comments</h2>
-<%= render @post.comments %>
-<h3>add a comment</h3>
-<p><%= render :partial => 'comments/form' %></p>
+	
 
-<% end %>
+
+		<!-- Blog Post Content Column -->
+		<div class="col-lg-8">
+
+			<!-- POST TITLE GOES HERE -->
+			<h1>
+				<%=  @post.title %>
+			</h1>
+			<hr>
+			<p><span class="glyphicon glyphicon-time"> Submitted <%= time_ago_in_words(@post.created_at) %> </span> </p>
+			<hr>
+			<!-- POST BODY GOES HERE -->
+			<p class="lead">
+				<%= @post.body %>
+			</p>
+			<hr>
+
+			<%= link_to 'Edit' , edit_post_path(@post) %>
+			<%= link_to 'Delete' , post_path(@post) , method: :delete %>
+		</p>
+
+
+		<!--NUMBER OF COMMENTS -->
+		<h2><%= @post.comments.count %> comments</h2>
+
+
+
+		<!-- FORM FOR COMMNETS -->
+		<div class="well">
+			<h4>Leave a Comment:</h4>
+			<%= render  partial: 'comments/form' %>
+		</div>
+		<hr>
+
+
+		<!-- PREVIOUS COMMENTS -->
+		<%= render @post.comments %>
+		<% end %>
+	</div>
+
+	<!-- Blog Sidebar Widgets Column -->
+
+	<div class="col-md-4">
+
+		<!-- Blog Search Well -->
+		<div class="well">
+			<h4>Blog Search</h4>
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
+			<!-- /.input-group -->
+		</div>
+
+		<!-- Blog Categories Well -->
+		<div class="well">
+			<h4>Blog Categories</h4>
+			<div class="row">
+				<div class="col-lg-6">
+					<ul class="list-unstyled">
+						<li><a href="#">Cryptocurrency</a>
+						</li>
+						<li><a href="#">Time and Space</a>
+						</li>
+						<li><a href="#">Internet of Things</a>
+						</li>
+						<li><a href="#">Instructables</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-lg-6">
+					<ul class="list-unstyled">
+						<li><a href="#">Cricket</a>
+						</li>
+						<li><a href="#">Squash</a>
+						</li>
+						<li><a href="#">Books</a>
+						</li>
+						<li><a href="#">Music</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
+
+		<!-- Side Widget Well -->
+		<div class="well">
+			<h4>My Blog</h4>
+			<p>Keep visiting for regular updates </p>
+		</div>
+
+	</div>
+
+</div>
+        <!-- /.row -->

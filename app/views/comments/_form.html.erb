@@ -1,14 +1,18 @@
-<%= form_for ([@post, @post.comments.build]) do |f| %>
+<%= form_for ([@post, @post.comments.build]), :html => {:role => 'form'}   do |f| %>
+<div class="form-group">
 
-<p>
-<%= f.label :name %>
-<%= f.text_field :name %>
-</p>
-<p>
-	<%= f.label :body %>
-	<%= f.text_area :body %>
-</p>
-<p>
-	<%= f.submit %>
-</p>
+
+	<%= f.label :name, :html => {:class => 'form-control'} %>
+</br>
+<%= f.text_field :name, :html => {:class => 'form-control' , :rows => '3'}  %>
+
+</br>
+</br>
+<%= f.label :body, :html => {:class => 'form-control'} %>
+</br>
+<%= f.text_area :body, :html => {:class => 'form-control' , :rows => '3'} %>
+</br>
+
+<%= f.submit class: "btn btn-primary"%>  
+</div>
 <%end%>
