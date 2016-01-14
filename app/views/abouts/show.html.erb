@@ -1,0 +1,35 @@
+<% if user_signed_in? %>
+
+<div class="container">
+	<div class="row">
+		<!-- Blog Post Content Column -->
+		<div class="col-lg-8">
+		<h1>
+		About Me:
+		</h1>
+			<h3>
+		         <%= @about.body %>
+		         <% if current_user.try(:is_admin) %>
+				 <%= link_to "Edit" , edit_about_path %>
+				 <% end %> 
+			</h3>
+		</div>
+	</div>
+</div>
+<% end %>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

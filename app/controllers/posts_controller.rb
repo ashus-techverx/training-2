@@ -9,10 +9,12 @@ class PostsController < ApplicationController
 	def new
 		@post = Post.new 
 	end
+
 	def create
 		@post = Post.new(post_params)
 
 		if (@post.save)
+			puts"ssssssssssssssssssssssssssssssssssss---ewee",@post.title.inspect
 		# Validates the post and redirects accordingly
 		redirect_to @post
 	else
@@ -21,6 +23,7 @@ class PostsController < ApplicationController
 	end
 
 end
+
 def show
 	@post = Post.find(params[:id])
 	
@@ -43,7 +46,7 @@ end
 def destroy
 	@post = Post.find(params[:id])
 	@post.destroy
-	redirect_to post_path
+	redirect_to posts_path
 end
 
 
