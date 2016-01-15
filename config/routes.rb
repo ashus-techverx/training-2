@@ -11,8 +11,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+
+  # resources :posts do
+  #   member do
+  #     get 'search'
+  #   end
+  # end
   
-  
+  post 'posts/search' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

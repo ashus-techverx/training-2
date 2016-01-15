@@ -57,10 +57,22 @@ def destroy
 	redirect_to posts_path
 end
 
+def search
+
+	
+
+	@posts = Post.find(:all, :conditions =>['title LIKE ?', "%#{params[:search]}%"])
+	@posts = Post.find(:all)
+	reidirect_to posts_search_path
+	
+end
+
 
 
 
 private
+
+
 def post_params
 	params.require(:post).permit(:title, :body)
 end
