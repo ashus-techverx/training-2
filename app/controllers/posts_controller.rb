@@ -11,12 +11,20 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
 
+
+		@post = Post.new(post_params)
+		
 		if (@post.save)
+
+			
 			puts"ssssssssssssssssssssssssssssssssssss---ewee",@post.title.inspect
+			
 		# Validates the post and redirects accordingly
+
+
 		redirect_to @post
+
 	else
 		render 'new'
 
