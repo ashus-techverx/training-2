@@ -35,6 +35,7 @@ end
 def show
 	@post = Post.find(params[:id])
 	
+	
 end
 
 def edit
@@ -59,11 +60,12 @@ end
 
 def search
 
-	
-
-	@posts = Post.find(:all, :conditions =>['title LIKE ?', "%#{params[:search]}%"])
-	@posts = Post.find(:all)
-	reidirect_to posts_search_path
+	#byebug
+	@posts = Post.where("title = ? " , "#{params[:search]}" )
+     #@posts = Post.find_by_sql(["SELECT id FROM posts WHERE title = ? ", "%#{params[:search]}%" ]).first
+	#@posts = Post.find(:all, :conditions =>['title LIKE ?', "%#{params[:search]}%"]) 
+	#@posts = Post.find(:all)
+	#redirect_to posts_search_path
 	
 end
 
